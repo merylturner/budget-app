@@ -1,0 +1,33 @@
+{
+  "name": "budget-app",
+  "version": "1.0.0",
+  "description": "Developers * Meryl Turner * Andrew Potter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merylturner/budget-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/merylturner/budget-app/issues"
+  },
+  "homepage": "https://github.com/merylturner/budget-app#readme",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-modal": "^2.2.4",
+    "react-redux": "^5.0.6",
+    "react-scripts": "^1.0.13",
+    "react-thunk": "^1.0.0",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "react-test-renderer": "^15.6.1"
+  }
+}
