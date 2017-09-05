@@ -38,7 +38,7 @@ export function updateCategory() {
         const {editCategory} = getState();
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                dispatch({type: ADD_CATEGORY, payload: editCategory});
+                dispatch({type: UPDATE_CATEGORY, payload: editCategory});
                 resolve();
             });
         });

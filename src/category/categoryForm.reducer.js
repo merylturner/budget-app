@@ -22,6 +22,14 @@ export const categories = (state = [], {type, payload}) => {
     switch(type) {
     case ADD_CATEGORY:
         return [...state, payload];
+    case UPDATE_CATEGORY: {
+        const index = state.indexOf(payload);
+        return [
+            ...state.slice(0, index),
+            payload,
+            ...state.slice(index+1)
+        ];
+    }
     default:
         return state;
     }
