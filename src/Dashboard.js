@@ -6,8 +6,8 @@ import CategoryItem from './category/CategoryItem';
 import {addCategory} from './category/categoryForm.actions';
 
 class Dashboard extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             showModal: false
         };

@@ -5,8 +5,8 @@ import {connect} from 'react-redux';
 import {initCategoryUpdate, updateCategory} from './categoryForm.actions';
 
 class CategoryItem extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             showModal: false
         };
@@ -26,7 +26,6 @@ class CategoryItem extends Component {
         this.props.initCategoryUpdate();
     }
 
-    //TODO this is just a copy of add
     handleUpdateCategory() {
         this.props.updateCategory()
             .then(() => this.handleCloseModal());
