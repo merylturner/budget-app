@@ -31,11 +31,11 @@ export default {
                 err => { throw err.response.body; }
             );
     },
-    // add(category, id, expense) {
-    //     return request.post(`${API_URL}/${id}/expenses`)
-    //         .then(
-    //             res => res.body,
-    //             err => { throw err.response.body; }
-    //         );
-    // }
+    addExpense(id, expense) {
+        return request.post(`${API_URL}/${id}/expenses`)
+            .then(
+                res => res.body,
+                err => { throw err.response.body; }
+            );
+    }
 };

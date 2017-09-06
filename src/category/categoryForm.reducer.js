@@ -1,35 +1,63 @@
-import { UPDATE_CATEGORY_BUDGET, UPDATE_CATEGORY_NAME, ADD_CATEGORY, INIT_CATEGORY_UPDATE, UPDATE_CATEGORY } from './categoryForm.constants';
+import * as actions from './categoryForm.constants';
 
-const emptyCategory = () => ({name: '', budget: ''});
+const emptyCategory = () => ({ name: '', budget: '' });
 
-export const editCategory = (state = emptyCategory(), {type, payload}) => {
-    switch(type) {
-    case UPDATE_CATEGORY_BUDGET:
-        return {budget: payload, name: state.name};
-    case UPDATE_CATEGORY_NAME:
-        return {budget: state.budget, name: payload};
-    case ADD_CATEGORY:
-    case UPDATE_CATEGORY:
+export const editCategory = (state = emptyCategory(), { type, payload }) => {
+    switch (type) {
+    case actions.UPDATE_CATEGORY_BUDGET:
+        return { budget: payload, name: state.name };
+    case actions.UPDATE_CATEGORY_NAME:
+        return { budget: state.budget, name: payload };
+    case actions.ADD_CATEGORY:
+    case actions.UPDATE_CATEGORY:
         return emptyCategory();
-    case INIT_CATEGORY_UPDATE:
+    case actions.INIT_CATEGORY_UPDATE:
         return Object.assign({}, payload || emptyCategory());
     default:
         return state;
     }
 };
 
-export const categories = (state = [], {type, payload}) => {
-    switch(type) {
-    case ADD_CATEGORY:
+export const categories = (state = [], { type, payload }) => {
+    switch (type) {
+    case actions.ADD_CATEGORY:
         return [...state, payload];
-    case UPDATE_CATEGORY: {
+    case actions.UPDATE_CATEGORY: {
         const index = state.indexOf(payload);
         return [
             ...state.slice(0, index),
             payload,
-            ...state.slice(index+1)
+            ...state.slice(index + 1)
         ];
     }
+    default:
+        return state;
+    }
+};
+
+export const categoriesError = (state = null, { type, payload }) => {
+    switch (type) {
+    case actions.FETCHED_CATEGORY_ERROR:
+    case actions.ADDED_CATEGORY_ERROR:
+        return payload;
+    case actions.FETCH_CATEGORY:
+    case actions.ADD_CATEGORY:
+        return null;
+    default:
+        return state;
+    }
+};
+
+export const categoriesLoading = (state = false, {type, payload}) => {
+    switch(type) {
+    case actions.FETCH_CATEGORY:
+    case actions.ADD_CATEGORY:
+        return true;
+    case actions.FETCHED_CATEGORY:
+    case actions.ADDED_CATEGORY:
+    case actions.FETCHED_CATEGORY_ERROR:
+    case actions.ADDED_CATEGORY_ERROR:
+        return false;
     default:
         return state;
     }
