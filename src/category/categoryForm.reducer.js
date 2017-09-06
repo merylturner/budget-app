@@ -8,8 +8,8 @@ export const editCategory = (state = emptyCategory(), { type, payload }) => {
         return { budget: payload, name: state.name };
     case actions.UPDATE_CATEGORY_NAME:
         return { budget: state.budget, name: payload };
-    case actions.UPDATE_CATEGORY:
-        return emptyCategory();
+    // case actions.UPDATE_CATEGORY:
+    //     return emptyCategory();
     case actions.INIT_CATEGORY_UPDATE:
         return Object.assign({}, payload || emptyCategory());
     default:
@@ -22,8 +22,9 @@ export const categories = (state = [], { type, payload }) => {
     case actions.ADDED_CATEGORY:
         console.log('CATEGORIES ACTION CALLED with', payload);
         return [...state, payload];
-    case actions.UPDATE_CATEGORY: {
-        const index = state.indexOf(payload);
+    case actions.UPDATED_CATEGORY: {
+        const index = state.findIndex(c => c._id === payload._id);
+        if (index === -1) return state;
         return [
             ...state.slice(0, index),
             payload,

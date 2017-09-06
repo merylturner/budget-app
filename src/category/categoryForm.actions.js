@@ -52,10 +52,10 @@ export const makeAddCategory = api => () => (dispatch, getState) => {
 export const addCategory = makeAddCategory(api);
 
 
-export const makeUpdateCategory = api => () => (dispatch, getState) => {
+export const makeUpdateCategory = api => id => (dispatch, getState) => {
     dispatch({ type: actions.UPDATE_CATEGORY });
     const {editCategory} = getState();
-    return api.update(editCategory)
+    return api.update(editCategory, id)
         .then(
             saved => {
                 dispatch({ type: actions.UPDATED_CATEGORY, payload: saved });
