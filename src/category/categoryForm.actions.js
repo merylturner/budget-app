@@ -17,6 +17,7 @@ export function updateCategoryBudget(budget = 0){
 export function addCategory() {
     return (dispatch, getState) => {
         const {editCategory} = getState();
+        //call to API
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 dispatch({type: ADD_CATEGORY, payload: editCategory});
@@ -36,6 +37,7 @@ export function initCategoryUpdate(category) {
 export function updateCategory() {
     return (dispatch, getState) => {
         const {editCategory} = getState();
+        //call to API
         return new Promise((resolve, reject) => {
             setTimeout(() => {
                 dispatch({type: UPDATE_CATEGORY, payload: editCategory});
