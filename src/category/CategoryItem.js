@@ -36,7 +36,7 @@ class CategoryItem extends Component {
         const {category} = this.props;
         return(
             <div>
-                {category.name}, {category.budget}
+                <div> {category.name}, {category.budget}</div>
                 <button onClick={this.handleOpenModal}>+</button>
                 <ReactModal
                     isOpen={this.state.showModal}

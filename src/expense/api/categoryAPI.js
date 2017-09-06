@@ -35,7 +35,7 @@ export default {
     //     return request.post(`${API_URL}/${id}/expenses`)
     //         .then(
     //             res => res.body,
-    //             err => { throw err.resonse.body; }
+    //             err => { throw err.response.body; }
     //         );
     // }
 };
