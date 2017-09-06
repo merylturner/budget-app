@@ -1,22 +1,41 @@
-import { request } from './request';
+import request from 'superagent';
 
-const URL = '/categories';
+const API_URL = '/api/categories';
 
 export default {
-    getAll(){
-        return request.get(URL);
+    getAll() {
+        return request.get(API_URL)
+            .then(
+                res => res.body,
+                err => { throw err.response.body; }
+            );
     },
-    get(id){
-        return request.get(`${URL}/${id}`);
+    get(id) {
+        return request.get(`${API_URL}/${id}`)
+            .then(
+                res => res.body,
+                err => { throw err.response.body; }
+            );
     },
-    add(category){
-        return request.post(URL, category);
+    add(category) {
+        return request.post(API_URL, category)
+            .then(
+                res => res.body,
+                err => { throw err.response.body; }
+            );
     },
-    delete(id){
-        return request.delete(`${URL}/${id}`);
-    }
-    //add expense, delete expense
-    // add(category, expense){
-    // return request.post(URL, category, expense)
+    delete(id) {
+        return request.delete(`${API_URL}/${id}`)
+            .then(
+                res => res.body,
+                err => { throw err.response.body; }
+            );
+    },
+    // add(category, id, expense) {
+    //     return request.post(`${API_URL}/${id}/expenses`)
+    //         .then(
+    //             res => res.body,
+    //             err => { throw err.resonse.body; }
+    //         );
     // }
 };
