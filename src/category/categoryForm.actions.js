@@ -35,10 +35,10 @@ export function makeGetCategories(api) {
 
 export const getCategories = makeGetCategories(api);
 
-export const makeAddCategory = api => category => dispatch => {
+export const makeAddCategory = api => () => (dispatch, getState) => {
     dispatch({ type: actions.ADD_CATEGORY });
-
-    return api.add(category)
+    const {editCategory} = getState();
+    return api.add(editCategory)
         .then(
             saved => {
                 dispatch({ type: actions.ADDED_CATEGORY, payload: saved });
@@ -52,10 +52,10 @@ export const makeAddCategory = api => category => dispatch => {
 export const addCategory = makeAddCategory(api);
 
 
-export const makeUpdateCategory = api => category => dispatch => {
+export const makeUpdateCategory = api => () => (dispatch, getState) => {
     dispatch({ type: actions.UPDATE_CATEGORY });
-
-    return api.add(category)
+    const {editCategory} = getState();
+    return api.update(editCategory)
         .then(
             saved => {
                 dispatch({ type: actions.UPDATED_CATEGORY, payload: saved });

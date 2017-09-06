@@ -18,7 +18,8 @@ export default {
             );
     },
     add(category) {
-        return request.post(API_URL, category)
+        return request.post(API_URL)
+            .send(category)
             .then(
                 res => res.body,
                 err => { throw err.response.body; }
