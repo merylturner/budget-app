@@ -3,7 +3,7 @@ import CategoryForm from './category/CategoryForm';
 import ReactModal from 'react-modal';
 import {connect} from 'react-redux';
 import CategoryItem from './category/CategoryItem';
-import {addCategory} from './category/categoryForm.actions';
+import {addCategory, getCategories} from './category/categoryForm.actions';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -15,6 +15,11 @@ class Dashboard extends Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleAddCategory = this.handleAddCategory.bind(this);
+    }
+
+    componentWillMount() {
+        console.log('THE COMPONENT HAS MOUNTED');
+        this.props.getCategories();
     }
 
     handleOpenModal() {
@@ -50,5 +55,5 @@ class Dashboard extends Component {
 
 export default connect(
     state => ({categories: state.categories}),
-    {addCategory}
+    {addCategory, getCategories}
 )(Dashboard);

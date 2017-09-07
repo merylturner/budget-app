@@ -25,6 +25,14 @@ export default {
                 err => { throw err.response.body; }
             );
     },
+    update(category, id) {
+        return request.put(`${API_URL}/${id}`)
+            .send(category)
+            .then(
+                res => res.body,
+                err => {throw err.response.body;}
+            );
+    },
     delete(id) {
         return request.delete(`${API_URL}/${id}`)
             .then(

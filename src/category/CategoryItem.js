@@ -27,7 +27,7 @@ class CategoryItem extends Component {
     }
 
     handleUpdateCategory() {
-        this.props.updateCategory()
+        this.props.updateCategory(this.props.category._id)
             .then(() => this.handleCloseModal());
     }
 
