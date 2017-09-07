@@ -68,6 +68,24 @@ export const makeUpdateCategory = api => id => (dispatch, getState) => {
 
 export const updateCategory = makeUpdateCategory(api);
 
+
+export const makeDeleteCategory = api => id => (dispatch, getState) => {
+    dispatch({ type: actions.DELETE_CATEGORY});
+    
+    return api.delete(id)
+        .then(
+            deleted => {
+                dispatch({ type: actions.DELETED_CATEGORY, payload: deleted });
+            },
+            err => {
+                dispatch({ type: actions.DELETED_CATEGORY_ERROR, payload: err });
+            }
+        );
+};
+
+export const deleteCategory = makeDeleteCategory(api);
+
+
 export function initCategoryUpdate(category) {
     return {
         type: actions.INIT_CATEGORY_UPDATE,

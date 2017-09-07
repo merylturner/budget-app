@@ -18,7 +18,6 @@ export const editCategory = (state = emptyCategory(), { type, payload }) => {
 export const categories = (state = [], { type, payload }) => {
     switch (type) {
     case actions.FETCHED_CATEGORY:
-        console.log(payload);
         return payload;
     case actions.ADDED_CATEGORY:
         return [...state, payload];
