@@ -18,7 +18,6 @@ class Dashboard extends Component {
     }
 
     componentWillMount() {
-        console.log('THE COMPONENT HAS MOUNTED');
         this.props.getCategories();
     }
 

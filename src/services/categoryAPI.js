@@ -41,7 +41,9 @@ export default {
             );
     },
     addExpense(id, expense) {
+        console.log('id is', id, 'expense is', expense);
         return request.post(`${API_URL}/${id}/expenses`)
+            .send(expense)
             .then(
                 res => res.body,
                 err => { throw err.response.body; }
