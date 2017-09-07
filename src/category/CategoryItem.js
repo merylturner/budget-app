@@ -31,6 +31,8 @@ class CategoryItem extends Component {
             .then(() => this.handleCloseModal());
     }
 
+    //handleDeleteCategory()
+
     render(){
         const {category} = this.props;
         return(
