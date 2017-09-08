@@ -18,7 +18,7 @@ export const editExpense = (state = emptyExpense(), { type, payload }) => {
 export const expenses = (state = [], { type, payload }) => {
     switch(type){
     case actions.ADDED_EXPENSE:
-        return [...state, payload];
+        return payload;
     case actions.UPDATED_EXPENSE: {
         const index = state.findIndex(e => e._id === payload._id);
         if(index === -1) return state;

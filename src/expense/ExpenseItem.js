@@ -31,7 +31,7 @@ class ExpenseItem extends Component {
         return (
             <div>
                 <div> {expense.name}, {expense.amount}</div>
-                <button onClick={this.handleOpenModal}>+</button>
+                <button onClick={this.handleOpenModal}>Edit</button>
                 <ReactModal
                     isOpen={this.state.showModal}
                     contentLabel='ExpenseItem'>
