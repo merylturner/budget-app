@@ -15,11 +15,11 @@ export function updateExpenseAmount(amount = 0){
     };
 }
 
-export const makeAddExpense = api => category => (dispatch, getState) => {
+export const makeAddExpenses = api => category => (dispatch, getState) => {
     dispatch({ type: actions.ADD_EXPENSE });
     const {editExpense} = getState();
     console.log('expenses is ',editExpense);
-    return api.addExpense(category,editExpense)
+    return api.addExpenses(category,editExpense)
         .then(
             saved => {
                 console.log('saved is', saved);
@@ -31,7 +31,22 @@ export const makeAddExpense = api => category => (dispatch, getState) => {
         );
 };
 
-export const addExpense = makeAddExpense(api);
+export const addExpenses = makeAddExpenses(api);
+
+export const makeDeleteExpense = api => (category, expense) => (dispatch, getState) => {
+    dispatch({ type: actions.DELETE_EXPENSE });
+    return api.deleteExpense(category, expense)
+        .then(
+            updated => {
+                dispatch({ type: actions.DELETED_EXPENSE, payload: updated });
+            },
+            err => {
+                dispatch({ type: actions.DELETED_EXPENSE_ERROR, payload: err });
+            }
+        );
+};
+
+export const deleteExpense = makeDeleteExpense(api);
 
 //TODO: updateExpense, deleteExpense?
 

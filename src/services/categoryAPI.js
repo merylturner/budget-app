@@ -40,10 +40,17 @@ export default {
                 err => { throw err.response.body; }
             );
     },
-    addExpense(id, expense) {
-        console.log('id is', id, 'expense is', expense);
+    addExpenses(id, expenses) {
+        console.log('id is', id, 'expenses is', expenses);
         return request.post(`${API_URL}/${id}/expenses`)
-            .send(expense)
+            .send(expenses)
+            .then(
+                res => res.body,
+                err => { throw err.response.body; }
+            );
+    },
+    deleteExpense(catId, expenseId) {
+        return request.delete(`${API_URL}/${catId}/expenses/${expenseId}`)
             .then(
                 res => res.body,
                 err => { throw err.response.body; }
