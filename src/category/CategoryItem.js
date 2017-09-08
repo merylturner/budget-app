@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {initCategoryUpdate, updateCategory, deleteCategory, getCategories} from './categoryForm.actions';
 import ExpenseItem from '../expense/ExpenseItem';
 import ExpenseForm from '../expense/ExpenseForm';
-import { addExpense } from '../expense/expenseForm.actions';
+import { addExpenses } from '../expense/expenseForm.actions';
 
 class CategoryItem extends Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class CategoryItem extends Component {
 
     handleUpdateCategory() {
         this.props.updateCategory(this.props.category._id)
-            .then(() => this.props.addExpense(this.props.category._id, this.props.expenses))
+            .then(() => this.props.addExpenses(this.props.category._id, this.props.expenses))
             .then(() => this.handleCloseModal());
     }
 
@@ -46,7 +46,6 @@ class CategoryItem extends Component {
         const {category, expenses} = this.props;
         return(
             <div>
-                {expenses.map((expense, index) => <ExpenseItem key={index} expense={expense}/>)}
                 <div> {category.name}, {category.budget}</div>
                 <button onClick={this.handleOpenModal}>Edit</button>
                 <ReactModal
@@ -58,6 +57,7 @@ class CategoryItem extends Component {
                     <button onClick={this.handleDeleteCategory}>Delete</button>
                     <button onClick={this.handleUpdateCategory}>Save</button>
                 </ReactModal>
+                {expenses.map((expense, index) => <ExpenseItem key={index} category={category} expense={expense}/>)}
             </div>
         );
     }
@@ -65,5 +65,5 @@ class CategoryItem extends Component {
 
 export default connect(
     state => ({editCategory: state.editCategory, expenses: state.expenses }),
-    {initCategoryUpdate, updateCategory, deleteCategory, getCategories, addExpense}
+    {initCategoryUpdate, updateCategory, deleteCategory, getCategories, addExpenses}
 )(CategoryItem);
