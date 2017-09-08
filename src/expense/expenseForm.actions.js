@@ -33,9 +33,6 @@ export const makeAddExpense = api => category => (dispatch, getState) => {
 
 export const addExpense = makeAddExpense(api);
 
-//TODO: updateExpense, deleteExpense?
-
-
 export function initExpenseUpdate(expense) {
     return {
         type: actions.INIT_EXPENSE_UPDATE,
