@@ -48,5 +48,12 @@ export default {
                 res => res.body,
                 err => { throw err.response.body; }
             );
+    },
+    deleteExpense(catId, expenseId) {
+        return request.delete(`${API_URL}/${catId}/expenses/${expenseId}`)
+            .then(
+                res => res.body,
+                err => { throw err.response.body; }
+            );
     }
 };

@@ -33,6 +33,21 @@ export const makeAddExpenses = api => category => (dispatch, getState) => {
 
 export const addExpenses = makeAddExpenses(api);
 
+export const makeDeleteExpense = api => (category, expense) => (dispatch, getState) => {
+    dispatch({ type: actions.DELETE_EXPENSE });
+    return api.deleteExpense(category, expense)
+        .then(
+            updated => {
+                dispatch({ type: actions.DELETED_EXPENSE, payload: updated });
+            },
+            err => {
+                dispatch({ type: actions.DELETED_EXPENSE_ERROR, payload: err });
+            }
+        );
+};
+
+export const deleteExpense = makeDeleteExpense(api);
+
 //TODO: updateExpense, deleteExpense?
 
 

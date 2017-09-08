@@ -57,7 +57,7 @@ class CategoryItem extends Component {
                     <button onClick={this.handleDeleteCategory}>Delete</button>
                     <button onClick={this.handleUpdateCategory}>Save</button>
                 </ReactModal>
-                {expenses.map((expense, index) => <ExpenseItem key={index} expense={expense}/>)}
+                {expenses.map((expense, index) => <ExpenseItem key={index} category={category} expense={expense}/>)}
             </div>
         );
     }
