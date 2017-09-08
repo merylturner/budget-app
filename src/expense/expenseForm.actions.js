@@ -22,8 +22,8 @@ export const makeAddExpense = api => category => (dispatch, getState) => {
     return api.addExpense(category,editExpense)
         .then(
             saved => {
-                console.log('saved is', saved.expenses);
-                dispatch({ type: actions.ADDED_EXPENSE, payload: saved.expenses });
+                console.log('saved is', saved);
+                dispatch({ type: actions.ADDED_EXPENSE, payload: saved });
             },
             err => {
                 dispatch({ type: actions.ADDED_EXPENSE_ERROR, payload: err });
