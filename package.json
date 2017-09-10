@@ -4,6 +4,8 @@
   "description": "Developers * Meryl Turner * Andrew Potter",
   "main": "index.js",
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -20,6 +22,8 @@
   },
   "homepage": "https://github.com/merylturner/budget-app#readme",
   "dependencies": {
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-modal": "^2.2.4",

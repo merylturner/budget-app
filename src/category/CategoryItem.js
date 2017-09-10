@@ -51,11 +51,11 @@ class CategoryItem extends Component {
                 <ReactModal
                     isOpen={this.state.showModal}
                     contentLabel="CategoryItem">
-                    <button onClick={this.handleCloseModal}>X</button>
-                    <CategoryForm />
-                    <ExpenseForm />
-                    <button onClick={this.handleDeleteCategory}>Delete</button>
-                    <button onClick={this.handleUpdateCategory}>Save</button>
+                    <button className="modalButton" onClick={this.handleCloseModal}>X</button>
+                    <CategoryForm className="categoryForm" />
+                    <ExpenseForm className="expenseForm" />
+                    <button className="modalButton" onClick={this.handleDeleteCategory}>Delete</button>
+                    <button className="modalButton" onClick={this.handleUpdateCategory}>Save</button>
                 </ReactModal>
                 {expenses.map((expense, index) => <ExpenseItem key={index} category={category} expense={expense}/>)}
             </div>
