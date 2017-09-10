@@ -4,6 +4,7 @@ import ReactModal from 'react-modal';
 import {connect} from 'react-redux';
 import CategoryItem from './category/CategoryItem';
 import {addCategory, getCategories} from './category/categoryForm.actions';
+import './App.css';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class Dashboard extends Component {
             <div>
                 {categories.map((category, index) => <CategoryItem key={index} category={category}/>)}
                 <button onClick={this.handleOpenModal}>+</button>
-                <ReactModal
+                <ReactModal className = 'modal'
                     isOpen={this.state.showModal}
                     contentLabel="Dashboard">
                     <button onClick={this.handleCloseModal}>X</button>
