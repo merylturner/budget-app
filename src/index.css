@@ -1,6 +1,36 @@
-div {
-  color: #00da91;
+/*          MAIN          */
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin: 0 auto; }
+
+.categoryItem {
+  flex-wrap: wrap;
+  width: fit-content;
+  height: fit-content;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: left;
+  padding: 20px;
+  color: #00da91;
+  border: 4px solid rgba(177, 177, 177, 0.23); }
+  .categoryItem .cat1 {
+    flex-grow: 5;
+    margin-right: 220px; }
+  .categoryItem .cat2 {
+    flex-grow: 1; }
+
+.expenseItem {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #00da91;
+  text-align: left;
+  width: fit-content; }
+  .expenseItem .exp1 {
+    margin-right: 220px; }
 
 body {
   margin: 0;
@@ -9,14 +39,18 @@ body {
   font-family: "Roboto", sans-serif;
   text-align: center; }
 
+/*          HEADER          */
 h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
-  color: #00da91; }
+  color: #00da91;
+  font-size: 35px; }
 
+/*          BUTTONS          */
 button {
-  width: 50px;
+  width: 90px;
   height: 30px;
+  font-size: 75%;
   color: white;
   background-color: #00da91;
   border-radius: 5%;
@@ -25,18 +59,43 @@ button {
   button :focus {
     outline: none; }
 
-.modalButton {
-  width: 50px;
+.expenseButton {
+  width: 40px;
   height: 30px;
-  color: #00da91;
-  background-color: white;
+  font-size: 75%;
+  color: white;
+  background-color: rgba(119, 136, 153, 0.42);
   border-radius: 5%;
   border: none;
-  margin: 10px;
-  text-transform: uppercase;
-  padding: 0 auto; }
-  .modalButton :focus {
+  margin: 10px; }
+  .expenseButton :focus {
     outline: none; }
+
+/*          MODAL          */
+*:focus {
+  outline: none; }
+
+.modal {
+  padding: 20px;
+  background-color: white;
+  box-shadow: 1px 5px 5px rgba(177, 177, 177, 0.23); }
+  .modal input {
+    margin: 20px; }
+  .modal label {
+    font-weight: bold;
+    color: #00da91; }
+  .modal button {
+    width: 50px;
+    height: 30px;
+    color: #00da91;
+    background-color: white;
+    border-radius: 5%;
+    border: none;
+    margin: 10px;
+    text-transform: uppercase;
+    padding: 0 auto; }
+    .modal button :focus {
+      outline: none; }
 
 .App-header {
   width: 100%;

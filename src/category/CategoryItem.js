@@ -46,18 +46,26 @@ class CategoryItem extends Component {
         const {category, expenses} = this.props;
         return(
             <div>
-                <div> {category.name}, {category.budget}</div>
-                <button onClick={this.handleOpenModal}>Edit</button>
+                <div className="categoryItem"> 
+                    <div>
+                        <span className="cat1">{category.name}</span> 
+                        <span className="cat2">{category.budget}</span>
+                    </div>
+                    <div>
+                        {expenses.map((expense, index) => <ExpenseItem className="expenseItem" key={index} category={category} expense={expense}/>)}
+                    </div>
+                </div>
+                <button onClick={this.handleOpenModal}>Edit Category</button>
                 <ReactModal
                     isOpen={this.state.showModal}
-                    contentLabel="CategoryItem">
+                    contentLabel="CategoryItem"
+                    className="modal">
                     <button className="modalButton" onClick={this.handleCloseModal}>X</button>
                     <CategoryForm className="categoryForm" />
                     <ExpenseForm className="expenseForm" />
                     <button className="modalButton" onClick={this.handleDeleteCategory}>Delete</button>
                     <button className="modalButton" onClick={this.handleUpdateCategory}>Save</button>
                 </ReactModal>
-                {expenses.map((expense, index) => <ExpenseItem key={index} category={category} expense={expense}/>)}
             </div>
         );
     }

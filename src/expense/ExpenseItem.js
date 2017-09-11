@@ -38,8 +38,12 @@ class ExpenseItem extends Component {
         const { expense } = this.props;
         return (
             <div>
-                <div> {expense.name}, {expense.amount}</div>
-                <button onClick={this.handleOpenModal}>Edit</button>
+                <div className="expenseItem"> 
+                    <span className="exp1">{expense.name}</span>
+                    <span className="exp2">{expense.amount}
+                        <button className="expenseButton" onClick={this.handleOpenModal}>Edit </button>
+                    </span>
+                </div>
                 <ReactModal
                     isOpen={this.state.showModal}
                     contentLabel='ExpenseItem'>
