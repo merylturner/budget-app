@@ -38,9 +38,11 @@ class Dashboard extends Component {
         const {categories} = this.props;
         return(
             <div>
-                {categories.map((category, index) => <CategoryItem key={index} category={category}/>)}
-                <button onClick={this.handleOpenModal}>+</button>
-                <ReactModal
+                <button onClick={this.handleOpenModal} style={{ width: 40}}>+</button>
+                <div className="dashboard">
+                    {categories.map((category, index) => <CategoryItem className="categoryItem" key={index} category={category}/>)}
+                </div>
+                <ReactModal className = 'modal'
                     isOpen={this.state.showModal}
                     contentLabel="Dashboard">
                     <button onClick={this.handleCloseModal}>X</button>

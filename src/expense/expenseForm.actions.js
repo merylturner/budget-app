@@ -48,9 +48,6 @@ export const makeDeleteExpense = api => (category, expense) => (dispatch, getSta
 
 export const deleteExpense = makeDeleteExpense(api);
 
-//TODO: updateExpense, deleteExpense?
-
-
 export function initExpenseUpdate(expense) {
     return {
         type: actions.INIT_EXPENSE_UPDATE,

@@ -1,0 +1,150 @@
+$main-color: rgb(0, 218, 145);
+$text-color: white;
+$centered: 0 auto;
+$main-font: 'Roboto', sans-serif;
+
+/*          MAIN          */
+
+// div {
+//     color: $main-color;
+//     margin: $centered;
+// }
+
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: $centered;
+}
+
+.categoryItem {
+    // display:flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-content: flex-start;
+    flex-wrap: wrap;
+    width: fit-content;
+    height: fit-content;
+    font-family: $main-font;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+    padding: 20px;
+    color: $main-color;
+    border: 4px solid rgba(177, 177, 177, 0.23);
+
+    .cat1 {
+        flex-grow: 5;
+        margin-right: 220px;
+    }
+    .cat2 {
+        flex-grow: 1;
+    }
+}
+
+.expenseItem {
+    font-family: $main-font;
+    font-size: 16px;
+    color: $main-color;
+    text-align: left;
+    width: fit-content;
+
+    .exp1 {
+        margin-right: 220px;
+    }
+
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: $main-font;
+    text-align: center;
+}
+
+/*          HEADER          */
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: $main-color;
+    font-size: 35px;
+}
+
+
+/*          BUTTONS          */
+
+button {
+    width: 90px;
+    height: 30px;
+    font-size: 75%;
+    color: $text-color;
+    background-color: $main-color;
+    border-radius: 5%;
+    border: none;
+    margin: 10px;
+
+    :focus {
+        outline: none;
+    }
+}
+
+.expenseButton {
+    width: 40px;
+    height: 30px;
+    font-size: 75%;
+    color: $text-color;
+    background-color: rgba(119, 136, 153, 0.42);
+    border-radius: 5%;
+    border: none;
+    margin: 10px;
+
+    :focus {
+        outline: none;
+    }
+}
+
+
+
+/*          MODAL          */
+
+*:focus{
+    outline: none;
+}
+.modal {
+
+    padding: 20px;
+    background-color: white;
+    box-shadow: 1px 5px 5px rgba(177, 177, 177, 0.23);
+    input {
+        margin: 20px;
+    }
+    label {
+        font-weight: bold;
+        color:$main-color;
+    }
+    button {
+        width: 50px;
+        height: 30px;
+        // font-size: 75%;
+        color: $main-color;
+        background-color: white;
+        border-radius: 5%;
+        border: none;
+        margin: 10px;
+        text-transform: uppercase;
+        padding: 0 auto;
+    
+        :focus {
+            outline: none;
+        }
+    }
+}
+
+
+.App-header {
+    width: 100%;
+    margin: $centered;
+}
