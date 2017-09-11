@@ -4,7 +4,6 @@ import ReactModal from 'react-modal';
 import {connect} from 'react-redux';
 import CategoryItem from './category/CategoryItem';
 import {addCategory, getCategories} from './category/categoryForm.actions';
-import './App.css';
 
 class Dashboard extends Component {
     constructor(props) {
