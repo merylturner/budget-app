@@ -26,7 +26,7 @@ export function makeGetCategories(api) {
                         dispatch({ type: actions.FETCHED_CATEGORY, payload: categories });
                     },
                     err => {
-                        dispatch({ type: actions.FETCHED_CATEGORY_ERROR, payload: err.error });
+                        dispatch({ type: actions.FETCHED_CATEGORY_ERROR, payload: err });
                     }
                 );
         };

@@ -1,4 +1,4 @@
-import * as actions from './actions';
+import * as actions from './constants';
 import authApi from '../services/authAPI';
 import {getStoredToken} from '../services/request';
 
@@ -28,7 +28,7 @@ export function signIn(credentials) {
             })
             .then(() => authApi.getUser())
             .then(user => {
-                dispatch({type: actions.FETCHED_USER, paload: user});
+                dispatch({type: actions.FETCHED_USER, payload: user});
             })
             .catch(err => {
                 dispatch({type: actions.AUTH_FAILED, payload: err});
