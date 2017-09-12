@@ -5,11 +5,6 @@ $main-font: 'Roboto', sans-serif;
 
 /*          MAIN          */
 
-// div {
-//     color: $main-color;
-//     margin: $centered;
-// }
-
 .dashboard {
     display: flex;
     flex-direction: row;
@@ -19,10 +14,6 @@ $main-font: 'Roboto', sans-serif;
 }
 
 .categoryItem {
-    // display:flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    // align-content: flex-start;
     flex-wrap: wrap;
     width: fit-content;
     height: fit-content;
@@ -128,7 +119,6 @@ button {
     button {
         width: 50px;
         height: 30px;
-        // font-size: 75%;
         color: $main-color;
         background-color: white;
         border-radius: 5%;
