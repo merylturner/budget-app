@@ -1,4 +1,4 @@
-import store from '../index';
+import { store } from '../index';
 import superagent from 'superagent';
 
 let token = '';
@@ -13,7 +13,7 @@ store.subscribe(() => {
     }
 });
 
-export const getStoreToken = () => storage.token;
+export const getStoredToken = () => storage.token;
 
 const wrap = cmd => cmd
     .set('Authorization', token)
