@@ -1,5 +1,8 @@
 # Budget App
-Developers!
+
+Full Stack JavaScript application implementing React and Redux. Users can manage multiple budget categories with the ability to add, delete and update expense items.
+
+Developers
 * Meryl Turner
 * Andrew Potter
 
