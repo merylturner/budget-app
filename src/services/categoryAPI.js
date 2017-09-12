@@ -48,6 +48,14 @@ export default {
                 err => { throw err.response.body; }
             );
     },
+    updateExpense(catId, expenseId, expense) {
+        return request.put(`${API_URL}/${catId}/expenses/${expenseId}`)
+            .send(expense)
+            .then(
+                res => res.body,
+                err => {throw err.response.body;}
+            );
+    },
     deleteExpense(catId, expenseId) {
         return request.delete(`${API_URL}/${catId}/expenses/${expenseId}`)
             .then(

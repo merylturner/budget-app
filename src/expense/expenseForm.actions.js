@@ -32,6 +32,21 @@ export const makeAddExpenses = api => category => (dispatch, getState) => {
 
 export const addExpenses = makeAddExpenses(api);
 
+export const makeUpdateExpense = api => (categoryId, expenseId, expense) => (dispatch, getState) => {
+    dispatch({ type: actions.UPDATE_EXPENSE });
+    return api.updateExpense(categoryId, expenseId, expense)
+        .then(
+            saved => {
+                dispatch({type: actions.UPDATED_EXPENSE, payload: saved });
+            },
+            err => {
+                dispatch({ type: actions.UPDATED_EXPENSE_ERROR, payload: err });
+            }
+        );
+};
+
+export const updateExpense = makeUpdateExpense(api);
+
 export const makeDeleteExpense = api => (category, expense) => (dispatch, getState) => {
     dispatch({ type: actions.DELETE_EXPENSE });
     return api.deleteExpense(category, expense)
