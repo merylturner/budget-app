@@ -52,7 +52,8 @@ class CategoryItem extends Component {
                         <span className="cat2">{category.budget}</span>
                     </div>
                     <div>
-                        {category.expenses.map((expense, index) => <ExpenseItem className="expenseItem" key={index} category={category} expense={expense}/>)}
+                        <p>Hello Budget</p>
+                        {/* {category.expenses.map((expense, index) => <ExpenseItem className="expenseItem" key={index} category={category} expense={expense}/>)} */}
                     </div>
                 </div>
                 <button onClick={this.handleOpenModal}>Edit Category</button>

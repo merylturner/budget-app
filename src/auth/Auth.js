@@ -35,8 +35,5 @@ export default withRouter(connect(
         error: auth.error,
         user: auth.user
     }),
-    dispatch => ({
-        signup(user) { dispatch(signup(user)); },
-        signin(credentials) { dispatch(signin(credentials)); }
-    })
+    { signup, signin }
 )(Auth));

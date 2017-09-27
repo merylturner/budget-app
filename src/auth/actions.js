@@ -20,7 +20,7 @@ export function checkForToken() {
     };
 }
 
-export function signIn(credentials) {
+export function signin(credentials) {
     return dispatch => {
         authApi.signin(credentials)
             .then(({token}) => {
@@ -36,7 +36,7 @@ export function signIn(credentials) {
     };
 }
 
-export function signUp(user) {
+export function signup(user) {
     return dispatch => {
         authApi.signup(user)
             .then(({token}) => {
@@ -52,6 +52,6 @@ export function signUp(user) {
     };
 }
 
-export function signOut() {
+export function signout() {
     return {type: actions.LOGOUT};
 }

@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const API_URL = '/auth';
+const API_URL = '/api/auth';
 
 export default {
     verify () {

@@ -1,5 +1,4 @@
-import { store } from '../index';
-import superagent from 'superagent';
+import store from '../store/index';
 
 let token = '';
 
