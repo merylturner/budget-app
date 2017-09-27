@@ -11,7 +11,7 @@ export const Routes = ({ user }) => {
     if (user) return (
         <Switch>
             <PrivateRoute path="/dashboard" render={() => <Dashboard className="dashboard"/>}/>
-            <Redirect to="/" />
+            {/* <Redirect to="/dashboard" /> */}
         </Switch>
     );
     else return (

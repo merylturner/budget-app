@@ -11,7 +11,7 @@ const GetStarted = () => (
     </p>
 );
 
-function Home({user}) {
+function Home() {
     return (
         <div>
             <h1>Welcome to Budge It!</h1>
