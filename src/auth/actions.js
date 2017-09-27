@@ -29,8 +29,8 @@ export function signin(credentials) {
             .then(() => authApi.getUser())
             .then(user => {
                 dispatch({type: actions.FETCHED_USER, payload: user});
-            })
-            .catch(err => {
+            },
+            err => {
                 dispatch({type: actions.AUTH_FAILED, payload: err});
             });
     };
@@ -45,8 +45,8 @@ export function signup(user) {
             .then(() => authApi.getUser())
             .then(user => {
                 dispatch({type: actions.FETCHED_USER, payload: user});
-            })
-            .catch(err => {
+            },
+            err => {
                 dispatch({type: actions.AUTH_FAILED, payload: err});
             });
     };
