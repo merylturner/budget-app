@@ -43,7 +43,7 @@ class CategoryItem extends Component {
     }
 
     render(){
-        const {category, expenses} = this.props;
+        const {category} = this.props;
         return(
             <div>
                 <div className="categoryItem"> 
@@ -52,7 +52,7 @@ class CategoryItem extends Component {
                         <span className="cat2">{category.budget}</span>
                     </div>
                     <div>
-                        {expenses.map((expense, index) => <ExpenseItem className="expenseItem" key={index} category={category} expense={expense}/>)}
+                        {category.expenses.map((expense, index) => <ExpenseItem className="expenseItem" key={index} category={category} expense={expense}/>)}
                     </div>
                 </div>
                 <button onClick={this.handleOpenModal}>Edit Category</button>

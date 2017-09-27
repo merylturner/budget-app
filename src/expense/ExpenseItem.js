@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import ExpenseForm from './ExpenseForm';
 import ReactModal from 'react-modal';
 import { connect } from 'react-redux';
-import { initExpenseUpdate, deleteExpense } from './expenseForm.actions';
+import { initExpenseUpdate, deleteExpense, updateExpense } from './expenseForm.actions';
 import {getCategories} from '../category/categoryForm.actions';
-//add updateExpense
 
 class ExpenseItem extends Component {
     constructor(props){
@@ -16,7 +15,7 @@ class ExpenseItem extends Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleDeleteExpense = this.handleDeleteExpense.bind(this);
-        // this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleUpdateExpense = this.handleUpdateExpense.bind(this);
     }
 
     handleOpenModal() {
@@ -26,6 +25,12 @@ class ExpenseItem extends Component {
     handleCloseModal() {
         this.setState({ showModal: false });
         this.props.initExpenseUpdate();
+    }
+
+    handleUpdateExpense() {
+        this.props.updateExpense(this.props.category._id, this.props.expense._id, this.props.expense)
+            .then(() => this.handleCloseModal())
+            .then(() => this.props.getCategories());
     }
 
     handleDeleteExpense() {
@@ -59,7 +64,6 @@ class ExpenseItem extends Component {
 
 export default connect(
     state => ({ editExpense: state.editExpense}),
-    {initExpenseUpdate, deleteExpense, getCategories}
+    {initExpenseUpdate, deleteExpense, getCategories, updateExpense}
 )(ExpenseItem);
 
-//add updateexpense
