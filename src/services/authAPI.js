@@ -1,36 +1,16 @@
-import request from 'superagent';
-
-const API_URL = '/auth';
+import { request } from './request';
 
 export default {
-    verify () {
-        return request.get(`${API_URL}/verify`)
-            .then(
-                res => res.body,
-                err => { throw err.response.body; }
-            );
+    verify() {
+        return request.get('/auth/verify');
     },
     signin(credentials) {
-        return request.post(`${API_URL}/signin`)
-            .send(credentials)
-            .then(
-                res => res.body,
-                err => { throw err.response.body; }
-            );
+        return request.post('/auth/signin', credentials);
     },
     signup(user) {
-        return request.post(`${API_URL}/signup`)
-            .send(user)
-            .then(
-                res => res.body,
-                err => { throw err.response.body; }
-            );
+        return request.post('/auth/signup', user);
     },
     getUser() {
-        return request.get('/api/me')
-            .then(
-                res => res.body,
-                err => { throw err.response.body; }
-            );
+        return request.get('/me');
     }
 };

@@ -15,13 +15,13 @@ function Auth({ user, signin, signup, error, location }) {
                 <Route path="/auth/signin" component={() => (
                     <div>
                         <p>Not yet registered? <Link to="/auth/signup">Sign up here.</Link></p>
-                        <Credentials submit={signin}/>
+                        <Credentials submit={(credentials) => signin(credentials)}/>
                     </div>
                 )}/>
                 <Route path="/auth/signup" component={() => (
                     <div>
                         <p>Already have an account? <Link to="/auth/signin">Sign in here.</Link></p>
-                        <Credentials submit={signup} allowName={true}/>
+                        <Credentials submit={(credentials) => signup(credentials)} allowName={true}/>
                     </div>
                 )}/>
             </Switch>
@@ -35,8 +35,5 @@ export default withRouter(connect(
         error: auth.error,
         user: auth.user
     }),
-    dispatch => ({
-        signup(user) { dispatch(signup(user)); },
-        signin(credentials) { dispatch(signin(credentials)); }
-    })
+    { signup, signin }
 )(Auth));

@@ -1,6 +1,6 @@
 import * as actions from './constants';
 import authApi from '../services/authAPI';
-import {getStoredToken} from '../services/request';
+import { getStoredToken } from '../services/request';
 
 export function checkForToken() {
     return dispatch => {
@@ -20,7 +20,7 @@ export function checkForToken() {
     };
 }
 
-export function signIn(credentials) {
+export function signin(credentials) {
     return dispatch => {
         authApi.signin(credentials)
             .then(({token}) => {
@@ -29,14 +29,14 @@ export function signIn(credentials) {
             .then(() => authApi.getUser())
             .then(user => {
                 dispatch({type: actions.FETCHED_USER, payload: user});
-            })
-            .catch(err => {
+            },
+            err => {
                 dispatch({type: actions.AUTH_FAILED, payload: err});
             });
     };
 }
 
-export function signUp(user) {
+export function signup(user) {
     return dispatch => {
         authApi.signup(user)
             .then(({token}) => {
@@ -45,13 +45,13 @@ export function signUp(user) {
             .then(() => authApi.getUser())
             .then(user => {
                 dispatch({type: actions.FETCHED_USER, payload: user});
-            })
-            .catch(err => {
+            },
+            err => {
                 dispatch({type: actions.AUTH_FAILED, payload: err});
             });
     };
 }
 
-export function signOut() {
+export function signout() {
     return {type: actions.LOGOUT};
 }
